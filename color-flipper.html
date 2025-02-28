@@ -1,0 +1,67 @@
+<!-- Fully maded by my self -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Flipper</title>
+    <style>
+      body {
+        background-color: rgb(254, 0, 0);
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .container {
+        margin: auto;
+        width: 50%;
+        
+        padding: 10px;
+        text-align: center;
+        border: 3px solid rgb(255, 255, 255);
+        margin-top: 250px;
+        
+      }
+      
+      .text {
+        font-size: auto;
+        font-weight: bold;
+        color: white;
+        background-color: black;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .btn{
+        padding: 10px 20px;
+        font-size: auto;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class=" text">Background Color: black</div>
+        
+      <button class="btn ">click me</button>
+
+      <script>
+        const colors = ["green", "red", "blue", "yellow", "black", "white", "purple", "pink", "orange", "brown"];
+        const btn = document.querySelector(".btn");
+        btn.addEventListener("click", () =>{
+          const random = Math.floor(Math.random() * colors.length);
+          const body = document.body;
+          body.style.backgroundColor = colors[random];
+          document.querySelector(".text").textContent = `Background Color: ${colors[random]}`;
+          
+        })
+      </script>
+        
+    </div>
+
+    
+  </body>
+</html>

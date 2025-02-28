@@ -1,0 +1,122 @@
+<!-- Written by my self exept CSS -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>counter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      
+      
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .text {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    .number {
+        font-size: 4rem;
+        font-weight: bold;
+        margin: 20px 0;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .positif {
+        color: #2ecc71; /* Green */
+    }
+
+    .negatif {
+        color: #e74c3c; /* Red */
+    }
+
+    .neutre {
+        color: white;
+    }
+
+    .btn-container {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        padding: 12px 20px;
+        font-size: 1.2rem;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        min-width: 120px;
+    }
+
+    .btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+    }
+      
+
+    </style>
+
+    
+  </head>
+  <body>
+      <div class="text">Counter</div>
+      <div class="number">0</div>
+      <button class="Decrease btn">Decrease</button>
+      <button class="Reset btn">Reset</button>
+      <button class="Increase btn">Increase</button>
+
+      <script>
+        let counter =0;
+        document.querySelector('.Increase')
+          .addEventListener(('click'), () =>{
+            counter++
+            
+            reloadNumber()
+          })
+        document.querySelector('.Decrease')
+          .addEventListener(('click'),() =>{
+            
+            counter--
+
+            reloadNumber()
+          })
+          
+        document.querySelector('.Reset')
+          .addEventListener(('click'),() =>{
+            counter = 0
+            reloadNumber()
+          })
+        
+        function reloadNumber(){
+          let number =document.querySelector('.number');
+          number.innerHTML = counter
+          
+          number.classList.remove('positif','negatif','neutre')
+
+          if (counter > 0){number.classList.add('positif')
+          }else if (counter < 0 ){number.classList.add('negatif') 
+          }else{number.classList.add('neutre')}
+            
+        }
+
+      </script>
+  </body>
+</html>
