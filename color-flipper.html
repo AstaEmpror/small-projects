@@ -39,10 +39,38 @@
         border-radius: 5px;
         cursor: pointer;
       }
+      .topnav {
+        background-color: #333;
+        overflow: hidden;
+      }
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+      }
     </style>
 
   </head>
   <body>
+    <header>
+      <div class="topnav">
+        <a class="active" href="./index.html">Home</a>
+        <a href="./text-generater/text-generater.html">text generater</a>
+        <a href="./counters.html">Counter</a>
+        <a href="./tester.html">tester</a>
+      </div>
+    </header>
     <div class="container">
       <div class=" text">Background Color: black</div>
         
