@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      /* Button Styles */
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 5px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+      }
+
+      button:active {
+        transform: scale(1);
+      }
+
+      /* Cart Quantity Display */
+      .js-R {
+        font-size: 20px;
+        color: #555;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        background-color: #e9f5ff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cart Quantity</h1>
+
+    <button onclick="if (quantity < 10) { quantity += 1 } else { alert('Cart is full') } show()">
+      Add to Cart
+    </button>
+
+    <button onclick="if (quantity < 9) { quantity += 2 } else if (quantity === 9) { quantity += 1 } else { alert('Cart is full') } show()">
+      +2
+    </button>
+
+    <button onclick="if (quantity != 0) { quantity-- } else { alert('Not enough items in cart') } show()">
+      Remove from Cart
+    </button>
+
+    <button onclick="if (quantity >= 2) { quantity -= 2 } else if (quantity === 1) { quantity-- } else { alert('Not enough items in cart') } show()">
+      -2
+    </button>
+
+    <button onclick="quantity = 0; show()">
+      Reset Cart
+    </button>
+
+    <p class="js-R">Cart Quantity: 0</p>
+
+    <script>
+      let quantity = 0;
+      let Cart = document.querySelector('.js-R');
+
+      function show() {
+        Cart.innerHTML = `Cart Quantity: ${quantity}`;
+      }
+    </script>
+  </body>
+</html>

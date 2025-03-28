@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math Quiz</title>
+    <style>
+      /* General Styles */
+      body {
+        background-color: rgba(176, 176, 11, 0.722);
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Math Operation Display */
+      .js-opperation {
+        font-size: 50px;
+        padding: 125px 0 0 300px;
+      }
+
+      /* Input Field */
+      .js-input {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 10px;
+        font-size: 30px;
+        margin: 20px 0 0 200px;
+        border: 5px solid rgba(92, 59, 116, 0.707);
+        border-radius: 20px;
+      }
+
+      /* Buttons */
+      button {
+        height: 50px;
+        width: 100px;
+        background-color: rgba(255, 0, 0, 0.755);
+        color: white;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      button:hover {
+        background-color: rgba(200, 0, 0, 0.9);
+        transform: scale(1.1);
+      }
+
+      button:active {
+        transform: scale(1);
+      }
+
+      /* Score Display */
+      .score {
+        font-size: 30px;
+        margin: 30px 300px;
+        padding-left: 20px;
+        border: 5px solid;
+        border-radius: 20px;
+        background-color: rgba(255, 202, 133, 0.695);
+      }
+
+      /* Skip Button Container */
+      .submit {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Result Display */
+      .Result {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        height: 50px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Math Operation -->
+    <div class="js-opperation"></div>
+
+    <!-- Input Field -->
+    <input placeholder="Enter the answer" class="js-input">
+
+    <!-- Submit Button -->
+    <button onclick="play()">Submit</button>
+
+    <!-- Result Display -->
+    <div class="Result"></div>
+
+    <!-- Skip Button -->
+    <div class="submit">
+      <button onclick="resetNumbers(); score = 0; displayScore();">Skip</button>
+    </div>
+
+    <!-- Score Display -->
+    <div class="score">score : 0</div>
+
+    <script>
+      // Variables
+      let result;
+      let firstRandom;
+      let opperation;
+      let secondRandom;
+      let Input = document.querySelector('.js-input');
+      let score = 0;
+      let Result = document.querySelector('.Result');
+
+      // Initialize Numbers
+      resetNumbers();
+
+      // Play Function
+      function play() {
+        let playerInput = Input.value;
+
+        if (result == playerInput) {
+          resetNumbers();
+          Result.innerHTML = 'correct';
+          score++;
+          Input.value = '';
+        } else if (!Number(playerInput)) {
+          alert('Please enter a number');
+          Input.value = '';
+        } else {
+          Result.innerHTML = 'incorrect, try again';
+          console.log(result);
+          score = 0;
+          Input.value = '';
+        }
+        displayScore();
+      }
+
+      // Reset Numbers
+      function resetNumbers() {
+        firstRandom = Math.floor(Math.random() * 99);
+        secondRandom = Math.floor(Math.random() * 99);
+        opperation = Math.floor(Math.random() * 3);
+
+        if (opperation === 1) {
+          opperation = '+';
+        } else if (opperation === 2) {
+          opperation = '-';
+        } else {
+          opperation = '*';
+        }
+
+        document.querySelector('.js-opperation').innerHTML = `<div>${firstRandom} ${opperation} ${secondRandom}</div>`;
+        result = eval(firstRandom + opperation + secondRandom);
+      }
+
+      // Display Score
+      function displayScore() {
+        document.querySelector('.score').innerHTML = `score : ${score}`;
+      }
+    </script>
+  </body>
+</html>

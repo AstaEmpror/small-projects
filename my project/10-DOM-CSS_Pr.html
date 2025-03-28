@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body{
+        font-family: Arial;
+      }
+      .css-Sub {
+        background-color: black ;
+        color: white;
+        border: none;
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+        padding-left: 15px ;
+        padding-right: 15px ;
+        font-weight: bold;
+        font-size: 15px ;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-bottom: 30px;
+      }
+      .css-subscribed {
+        background-color: rgb(240,240,240);
+        color: black;
+      }
+
+      .css-Input {
+        padding: 10px;
+        font-size: 17px;
+        
+      }
+      .css-b{
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-weight:lighter;
+        font-size: 15px ;
+        cursor: pointer;
+      }
+
+      
+    </style>
+  
+  </head>  
+  <body>
+    <h2>Youtube Subscribe Button</h2>
+    <button onclick="subscribe()"  
+     class ="js-Sub css-Sub"
+      >
+      Subscribe
+    </button>
+    <h2>Amazon Calculator</h2>
+    <p>
+      Shipping cost is 5$<br>
+      for +100$ orders, shipping cost is 10$<br>
+      Tax is 10%<br>
+      for +200$ orders, tax is 7%<br>
+    </p>
+    <input placeholder="Cost of order "
+    class="js-Input css-Input"
+    onkeydown=" event.key === 'Enter' && calc()"
+    >
+    <button class = 'css-b' 
+    onclick="calc()">Calculate</button>
+    
+    <h4 class="js-P"> </h4>
+
+
+    
+    <script>
+      function subscribe() {
+        const buttElem = document.body.querySelector('.js-Sub') ;
+        if (buttElem.innerText === 'Subscribe') {
+          buttElem.innerHTML = 'Subscribed';
+          buttElem.classList.add('css-subscribed');
+        } else {
+          buttElem.innerText = 'Subscribe';
+          buttElem.classList.remove('css-subscribed');
+        }
+      }
+
+      function calc() {
+        const inputElem = document.body.querySelector('.js-Input');
+
+        let cost = Number(inputElem.value);
+        
+
+      if (!cost) {document.querySelector('.js-P').innerHTML = `Please enter a number`;
+      document.querySelector('.js-Input').value = '';
+        return;
+        }
+
+        let tax  = 0
+        let ship = 5;
+        let taxP = 10;
+        
+        
+        if (cost > 100) {
+            ship += 5;
+          }
+        if (cost > 200) {
+            taxP = 7
+          }
+        
+        tax = taxP * cost/100;
+        cost += tax + ship;
+
+        
+        
+        document.querySelector('.js-P').innerHTML = `
+        Shipping cost is ${ship}$,<br>
+        Tax is ${tax}$,( ${taxP}%)<br>
+        The totale cost is ${cost}$`;
+      }
+  
+      
+    </script>
+  
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Base</title>
+    <style>
+      body{
+        background-color: rgb(30, 29, 29);
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+      }
+      .css-In{
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border-radius: 10px;
+        border: 3px solid rgb(0, 13, 201);
+      
+      }
+      .css-add{
+        
+        color: rgba(246, 255, 0, 0.767);
+        background-color: rgba(4, 220, 47, 0.704);
+        
+        font-weight: bold;
+
+      }
+      
+      .css-todo{
+        width: 200px;
+        height: 30px;
+        font-size: 20px;}
+        
+      .css-remove{
+        
+        color: rgba(255, 0, 0, 0.767);
+        background-color: rgba(229, 255, 0, 0.767);
+        
+        font-weight: bold;
+
+      }
+
+      
+
+
+
+
+
+      .css-date{
+        background-color: rgba(255, 151, 151, 0.479);
+        color: rgba(0, 30, 255, 0.456);
+        border-radius: 10px;
+        border: 3px solid rgb(0, 13, 201);
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
+        
+      }
+      
+      .css-html,
+      .grip
+       {
+        margin-left: 20px;
+        margin-top: 10px;
+        
+
+        display : grid;
+        grid-template-columns : 200px 200px 100px;
+        
+        font-family: Arial, Helvetica, sans-serif;
+        column-gap: 10px;
+        row-gap: 10px;
+        
+
+        
+      }
+    </style>
+    
+    
+  
+  </head>  
+  <body>
+
+    <h1>    Todo List    </h1>
+    <div class="grip">
+    <input  
+      class="js-In css-In" 
+      placeholder="Todo name"
+      onkeydown =" event.key ==='Enter' && Todo()">
+    <input 
+      class="js-date css-date"
+      type="date">
+
+    <button 
+      class="css-add" 
+      onclick="Todo()"
+    > Add </button></div>
+
+    
+    
+     
+     
+    
+
+
+    <div class="jr-list css-list"></div>
+
+    <script>
+      
+      let list =[]
+
+      var i =0;
+      function Todo(){
+        
+        let input = document.querySelector('.js-In');
+        
+        let value = input.value.trim();
+        
+        
+        
+        let date = document.querySelector('.js-date');
+        
+        let value2 = date.value.trim();
+        list.push({
+          value,
+          value2
+        })
+        
+        input.value = ''
+        date.value = '';
+        
+        runder()
+      
+      }
+      
+      function runder(){
+        var HTML = document.querySelector('.jr-list')
+        HTML.innerHTML = ''
+        
+        list.forEach((todo, i) => {
+        
+          
+        let { value , value2 } = todo
+        
+        
+
+       
+        
+
+        var div1 = document.createElement('p')
+        div1.className = 'css-todo'
+        div1.innerHTML = `${value}`
+
+        var div2 = document.createElement('p')
+        div2.className = 'css-todo'
+        div2.innerHTML = `${value2}`
+
+        var button = document.createElement('button')
+        button.className = `css-remove `
+        button.innerHTML = 'delete'
+        button.onclick = () => removeb(i)
+
+        var html = document.createElement('div')
+        html.className = `jr-html${i} css-html`
+
+        
+        
+
+        html.appendChild(div1)
+        html.appendChild(div2)
+        html.appendChild(button)
+
+        HTML.appendChild(html)
+        })
+        
+          
+
+
+
+
+          
+        
+        
+      }
+      
+      
+      function removeb(i){
+        list.splice(i,1)
+        
+        
+        runder()
+      }
+      
+      
+        
+        
+      
+      
+
+
+      
+    </script>
+  
+  </body>
+</html> 
+
+
+
+
