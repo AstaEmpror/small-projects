@@ -4,9 +4,11 @@
     <title>Cart</title>
     <style>
       /* General Styles */
-      body {
+      body{background-color: #f4f4f9;}
+
+      section {
         font-family: Arial, Helvetica, sans-serif;
-        background-color: #f4f4f9;
+        
         margin: 0;
         padding: 0;
         display: flex;
@@ -42,6 +44,24 @@
       button:active {
         transform: scale(1);
       }
+      header{margin-top: 20px;}
+      header a {
+        text-decoration: none;
+        color: #04AA6D;
+        
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 15px;
+        border: 2px solid #04AA6D;
+        border-radius: 5px;
+        background-color: #e9f5ff;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header a:hover {
+        background-color: #007bff;
+        color: white;
+      }
 
       /* Cart Quantity Display */
       .js-R {
@@ -56,30 +76,37 @@
     </style>
   </head>
   <body>
-    <h1>Cart Quantity</h1>
 
-    <button onclick="if (quantity < 10) { quantity += 1 } else { alert('Cart is full') } show()">
-      Add to Cart
-    </button>
+    <header>
+      <a href="../index.html">Home</a>
+    </header>
+    <section>
 
-    <button onclick="if (quantity < 9) { quantity += 2 } else if (quantity === 9) { quantity += 1 } else { alert('Cart is full') } show()">
-      +2
-    </button>
+    
+      <h1>Cart Quantity</h1>
 
-    <button onclick="if (quantity != 0) { quantity-- } else { alert('Not enough items in cart') } show()">
-      Remove from Cart
-    </button>
+      <button onclick="if (quantity < 10) { quantity += 1 } else { alert('Cart is full') } show()">
+        Add to Cart
+      </button>
 
-    <button onclick="if (quantity >= 2) { quantity -= 2 } else if (quantity === 1) { quantity-- } else { alert('Not enough items in cart') } show()">
-      -2
-    </button>
+      <button onclick="if (quantity < 9) { quantity += 2 } else if (quantity === 9) { quantity += 1 } else { alert('Cart is full') } show()">
+        +2
+      </button>
 
-    <button onclick="quantity = 0; show()">
-      Reset Cart
-    </button>
+      <button onclick="if (quantity != 0) { quantity-- } else { alert('Not enough items in cart') } show()">
+        Remove from Cart
+      </button>
 
-    <p class="js-R">Cart Quantity: 0</p>
+      <button onclick="if (quantity >= 2) { quantity -= 2 } else if (quantity === 1) { quantity-- } else { alert('Not enough items in cart') } show()">
+        -2
+      </button>
 
+      <button onclick="quantity = 0; show()">
+        Reset Cart
+      </button>
+
+      <p class="js-R">Cart Quantity: 0</p>
+    </section>
     <script>
       let quantity = 0;
       let Cart = document.querySelector('.js-R');

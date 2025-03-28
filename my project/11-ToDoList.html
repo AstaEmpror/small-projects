@@ -3,6 +3,26 @@
   <head>
     <title>Base</title>
     <style>
+      header{margin-top: 20px;}
+      header a {
+        text-decoration: none;
+        color: #04AA6D;
+        
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 15px;
+        border: 2px solid #04aa6dab;
+        border-radius: 5px;
+        background-color: #e9f5ff;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header a:hover {
+        background-color: #00ff1a8f;
+        color: white;
+      }
+
+      
       body{
         background-color: rgb(30, 29, 29);
         color: rgb(255, 255, 255);
@@ -12,7 +32,7 @@
         background-color: rgb(0, 0, 0);
         color: rgb(255, 255, 255);
         border-radius: 10px;
-        border: 3px solid rgb(0, 13, 201);
+        border: 3px solid #00ff1a8f;
       
       }
       .css-add{
@@ -45,14 +65,22 @@
 
 
       .css-date{
-        background-color: rgba(255, 151, 151, 0.479);
-        color: rgba(0, 30, 255, 0.456);
+        background-color: rgba(0, 0, 0, 0.505);
+        color: rgba(115, 115, 115, 0.634);
         border-radius: 10px;
-        border: 3px solid rgb(0, 13, 201);
+        border: 3px solid #00ff1a8f;
         width: 150px;
+        
         height: 40px;
         font-size: 20px;
         
+      }
+      .css-date::-webkit-calendar-picker-indicator {
+        background-color: #00ff1a8f; /* Change the background color of the icon */
+        color: #ffffff; /* Change the color of the icon */
+        border-radius: 50%; /* Make the icon circular */
+        padding: 5px; /* Add some padding */
+        cursor: pointer; /* Change the cursor to pointer */
       }
       
       .css-html,
@@ -78,6 +106,9 @@
   
   </head>  
   <body>
+    <header>
+      <a href="../index.html">Home</a>
+    </header>
 
     <h1>    Todo List    </h1>
     <div class="grip">

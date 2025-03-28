@@ -3,6 +3,24 @@ body {
   color: white;
   font-family: Arial;
 }
+header{margin-top: 20px;}
+header a {
+  text-decoration: none;
+  color: #04AA6D;
+  
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 2px solid #04AA6D;
+  border-radius: 5px;
+  background-color: #e9f5ff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header a:hover {
+  background-color: #007bff;
+  color: white;
+}
 
 .title {
   font-size: 30px;
